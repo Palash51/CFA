@@ -117,7 +117,7 @@ function Home() {
             <div>
               <PageHeader title={active.label} separator={false} />
             </div>
-            <div className="flex-grow-1 overflow-hidden p-1" style={{height:0, width:1180, overflowX:'hidden'}}>
+            <div className="flex-grow-1 overflow-hidden p-1" style={{height:0, width:1200, overflowX:'hidden', marginBottom: 44}}>
               {/* {active.name === 'farmers' && (    
                         <Farmers />
                     )} */}

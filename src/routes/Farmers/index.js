@@ -77,35 +77,29 @@ function Farmers() {
             "gender": "Female"
         },
         {
-            "firstName": "Annabel",
-            "lastName": "Nelsey",
-            "email": "anelsey9@google.com",
-            "gender": "Female"
-        },
-        {
-            "firstName": "Sayres",
-            "lastName": "Adelberg",
-            "email": "sadelberg6@uol.com.br",
-            "gender": "Male"
-        },
-        {
-            "firstName": "Murray",
-            "lastName": "Bravington",
-            "email": "mbravington7@drupal.org",
-            "gender": "Male"
-        },
-        {
-            "firstName": "Jena",
-            "lastName": "Swatheridge",
-            "email": "jswatheridge8@npr.org",
-            "gender": "Female"
-        },
-        {
-            "firstName": "Annabel",
-            "lastName": "Nelsey",
-            "email": "anelsey9@google.com",
-            "gender": "Female"
-        }
+          "firstName": "Lem",
+          "lastName": "Males",
+          "email": "lmales5@admin.ch",
+          "gender": "Male"
+      },
+      {
+          "firstName": "Sayres",
+          "lastName": "Adelberg",
+          "email": "sadelberg6@uol.com.br",
+          "gender": "Male"
+      },
+      {
+          "firstName": "Murray",
+          "lastName": "Bravington",
+          "email": "mbravington7@drupal.org",
+          "gender": "Male"
+      },
+      {
+          "firstName": "Jena",
+          "lastName": "Swatheridge",
+          "email": "jswatheridge8@npr.org",
+          "gender": "Female"
+      }
     ];
     
       const schema = [
@@ -230,9 +224,9 @@ function Farmers() {
     
       return (
         <div className="h-100 d-flex flex-column overflow-hidden">
-          <Card className="m-2 bg-light flex-grow-1 overflow-hidden d-flex flex-column"
+          <Card className="m-6 bg-light flex-grow-1 overflow-hidden d-flex flex-column"
             shadow="light" >
-            <>
+            <div style={{height: '90%'}}>
             <Table
               className="flex-grow-1 overflow-hidden"
               loaderSchema={loaderSchema}
@@ -257,6 +251,8 @@ function Farmers() {
               pageSize={10}
               // onPageChange={newPage => console.log(`on-page-change:- ${newPage}`)}
             />
+            </div>
+            <div>
             <Pagination
                   type="jump"
                   className="py-4 justify-content-center"
@@ -264,8 +260,7 @@ function Farmers() {
                   // totalPages={totalPageCount}
                   // onPageChange={this.onPageChange}
                 />
-            
-            </>
+              </div>
           </Card>
         </div>
       );
