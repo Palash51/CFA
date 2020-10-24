@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 import {
   Row,
@@ -10,7 +9,8 @@ import {
 } from "@innovaccer/design-system";
 import Farmers from "./Farmers";
 
-function Home() {
+
+function Home(props) {
   const title = "CFA";
   const options = {
     title,
@@ -59,20 +59,29 @@ function Home() {
           label: "Timeline",
         },
         {
+          name: "analytics.stats",
+          label: "Stats",
+        },
+        {
           name: "analytics.care_plans",
           label: "Plans",
         },
       ],
     },
     {
-      name: "claims",
-      label: "Claims",
-      icon: "receipt",
+      name: "inventory",
+      label: "Inventory",
+      icon: "local_mall",
     },
     {
       name: "manula_entry",
       label: "Contract Form",
       icon: "border_color",
+    },
+    {
+      name: "claims",
+      label: "Claims",
+      icon: "receipt",
     },
     {
       name: "documents",
@@ -99,12 +108,13 @@ function Home() {
 
   return (
     <>
-      <div className="w-10 h-25 p-2 bg-light" style={{ background: "#f4f4f4" }}>
+      <div className="w-10 h-25 p-2 bg-light" style={{ background: "#f4f4f4", borderBottom: '1px ridge #d5d5d5'}}>
         <PageHeader {...options} separator={false} />
       </div>
       <Row className="vh-100 bg-secondary-lightest">
-        <div className="d-flex bg-secondary-lighter w-100">
+        <div className="d-flex bg-secondary-lighter w-100" style={{width: 256}}>
           <Navigation
+            className="bg-light"
             type="vertical"
             menus={data}
             expanded={expanded}
@@ -113,17 +123,11 @@ function Home() {
             active={active}
             onClick={onClickHandler}
           />
+          {active.name === 'farmers' && ( 
           <div class="h-100 w-100 d-flex flex-column">
-            <div>
-              <PageHeader title={active.label} separator={false} />
-            </div>
-            <div className="flex-grow-1 overflow-hidden p-1" style={{height:0, width:1200, overflowX:'hidden', marginBottom: 44}}>
-              {/* {active.name === 'farmers' && (    
-                        <Farmers />
-                    )} */}
-              <Farmers />
-            </div>
+            <Farmers />
           </div>
+          )}
         </div>
       </Row>
     </>

@@ -1,13 +1,19 @@
 import React from "react";
+
 import {
   Card,
   Table,
   Icon,
   GridCell,
-  Pagination
+  Pagination,
+  PageHeader,
+  Text,
+  Button,
+  ProgressBar
 } from "@innovaccer/design-system";
 
 import styled from 'styled-components';
+import FarmerDetails from "./FarmerDetails";
 
 const TableWrapper = styled.div`
   
@@ -153,7 +159,7 @@ function Farmers() {
         },
         {
           name: 'email',
-          displayName: 'Custom Cell',
+          displayName: 'Timeline',
           width: '30%',
           resizable: true,
           // separator: true,
@@ -162,8 +168,10 @@ function Farmers() {
           cellRenderer: (props) => {
             return(
               <>
-                
-                <GridCell {...props} />
+                <div className="w-75">
+                  <ProgressBar max={100} value={40} />
+                </div>
+                {/* <GridCell {...props} /> */}
               </>
             )
           }
@@ -214,15 +222,40 @@ function Farmers() {
             "cellType": "ICON"
         },
         {
-            "name": "email",
-            "displayName": "Custom Cell",
+            "name": "progress",
+            "displayName": "Timeline",
             // "width": 200,
             "resizable": true,
             "cellType": "WITH_META_LIST"
         }
     ];
+
+    const options = {
+      title:"All Farmers",
+      actions: (
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginRight: 20 }}>
+          <Button appearance="primary">Add Farmer</Button>
+         </div>
+      )
+    };
+
+    const [farmerDetails, openFarmerDetails] = React.useState(false);
+
+    const showFarmerDetails = (userInfo) => {
+      openFarmerDetails(true)
+    }
     
       return (
+        <>
+        {!farmerDetails && (
+        <>
+        <div className="w-100 p-1">
+            <PageHeader
+            separator={false}
+            {...options}
+            />
+        </div>
+        <div className="flex-grow-1 overflow-hidden p-1" style={{height:0, width:1220, overflowX:'hidden', marginBottom: 48}}>
         <div className="h-100 d-flex flex-column overflow-hidden">
           <Card className="m-6 bg-light flex-grow-1 overflow-hidden d-flex flex-column"
             shadow="light" >
@@ -231,14 +264,21 @@ function Farmers() {
               className="flex-grow-1 overflow-hidden"
               loaderSchema={loaderSchema}
               withCheckbox={false}
+              type="resource"
+              showHead={true}
               showMenu={false}
               data={data}
               schema={schema}
               draggable={false}
-              withHeader={true}
+              multipleSorting={false}
+              withHeader
               headerOptions={{
-                withSearch: true
-              }}
+                withSearch: true,
+                dynamicColumn: false
+              }}        
+              onRowClick={userInfo => {
+                showFarmerDetails(userInfo);
+              }}      
               onSearch={(currData, searchTerm) => {
                 return currData.filter(d =>
                   d.firstName.toLowerCase().match(searchTerm.toLowerCase())
@@ -263,6 +303,13 @@ function Farmers() {
               </div>
           </Card>
         </div>
+        </div>
+        </>
+        )}
+        {farmerDetails && (
+          <FarmerDetails />
+        )}
+      </>
       );
     };
     
