@@ -1,6 +1,7 @@
 import React from "react";
+import './index.css';
 
-import { Card , Button, Text, Tooltip} from "@innovaccer/design-system";
+import { Card , Button, Text, Tooltip, Icon} from "@innovaccer/design-system";
 
 function PersonalDetails() {
   return (
@@ -15,17 +16,7 @@ function PersonalDetails() {
         >
           <Card className="h-100 w-100 bg-light" shadow="light">
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <div
-                style={{
-                  display: "flex",
-                //   flex: "1 1 0%",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  padding: 16,
-                  marginBottom: 20
-                }}
-              >
+              <div className="Contact-detail-heading">
                 <div as="h5" style={{display: 'block', fontSize: 16, fontWeight: 700 }}>
                   Contact Details
                 </div>
@@ -33,65 +24,37 @@ function PersonalDetails() {
                     <Button appearance="basic" icon="edit" size="tiny" />
                 </div>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flex: "1 1 0%",
-                  flexDirection: "row",
-                  padding: 16,
-                  borderBottom: '1px solid #c5c5c5',
-                }}
-              >
-                <div as="h5" style={{display: 'block', fontSize: 16, fontWeight: 700 }}>
+              <div className="Contact-info">
+              <Icon name="call"/>
+                <div as="h5" className="w-50 ml-4">
                   Phone Numbers
                 </div>
                 <div className="h-50">
                     1234567890
                 </div>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flex: "1 1 0%",
-                  flexDirection: "row",
-                  padding: 16,
-                  borderBottom: '1px solid #c5c5c5'
-                }}
-              >
-                <div as="h5" style={{display: 'block', fontSize: 16, fontWeight: 700 }}>
-                  Phone Numbers
+              <div className="Contact-info">
+              <Icon name="place"/>
+                <div as="h5" className="w-50 ml-4">
+                  Address
                 </div>
                 <div className="h-50">
                     1234567890
                 </div>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flex: "1 1 0%",
-                  flexDirection: "row",
-                  padding: 16,
-                  borderBottom: '1px solid #c5c5c5'
-                }}
-              >
-                <div as="h5" style={{display: 'block', fontSize: 16, fontWeight: 700 }}>
-                  Phone Numbers
+              <div className="Contact-info">
+                <Icon name="email"/>
+                <div as="h5" className="w-50 ml-4">
+                Email Address
                 </div>
                 <div className="h-50">
                     1234567890
                 </div>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flex: "1 1 0%",
-                  flexDirection: "row",
-                  padding: 16,
-                  borderBottom: '1px solid #c5c5c5'
-                }}
-              >
-                <div as="h5" style={{display: 'block', fontSize: 16, fontWeight: 700 }}>
-                  Phone Numbers
+              <div className="Contact-info">
+              <Icon name="healing"/>
+              <div as="h5" className="w-50 ml-4">
+                  Emergency Contact
                 </div>
                 <div className="h-50">
                     1234567890
@@ -102,7 +65,7 @@ function PersonalDetails() {
         </div>
         <div style={{padding: 16}}>
             Assignee
-            <Button appearance="basic" size="regular" style={{border:'1px solid #c5c5c5', fontSize: 13, boxSizing: 'revert', marginTop: 2}}>
+            <Button appearance="basic" size="regular" className="Assign-button">
                 Assign    
             </Button>
             <div style={{marginTop: 16}}>
