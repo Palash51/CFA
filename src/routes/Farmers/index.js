@@ -1,13 +1,10 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 import {
   Card,
   Table,
-  Icon,
-  GridCell,
   Pagination,
   PageHeader,
-  Text,
   Button,
   ProgressBar
 } from "@innovaccer/design-system";
@@ -21,6 +18,7 @@ const TableWrapper = styled.div`
 
 
 function Farmers() {
+  const history = useHistory();
     const data = [
         {
             "firstName": "Brooke",
@@ -242,7 +240,9 @@ function Farmers() {
     const [farmerDetails, openFarmerDetails] = React.useState(false);
 
     const showFarmerDetails = (userInfo) => {
+      // debugger
       openFarmerDetails(true)
+      history.push(`/farmers/${userInfo.firstName}`);
     }
     
       return (
@@ -307,7 +307,7 @@ function Farmers() {
         </>
         )}
         {farmerDetails && (
-          <FarmerDetails />
+          <FarmerDetails  />
         )}
       </>
       );

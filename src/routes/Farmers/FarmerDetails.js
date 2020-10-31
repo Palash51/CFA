@@ -8,10 +8,12 @@ import {
     StatusHint
     
   } from "@innovaccer/design-system";
+  import { useHistory } from 'react-router-dom';
 import PersonalDetails from './PersonalDetails';
 
 
 function FarmerDetails() {
+  const history = useHistory();
     const navigationPosition = 'center';
 
   const title = 'Farmer Details';
@@ -31,11 +33,7 @@ function FarmerDetails() {
   const breadcrumbData = [
     {
       label: 'All farmers',
-      link: '/level0'
-    },
-    {
-      label: 'Test',
-      link: '/level1'
+      link: '/farmers'
     }
   ];
 
@@ -58,13 +56,13 @@ function FarmerDetails() {
     navigation: <Navigation menus={navigationData} onClick={menu => navigateMenu(menu)} active={active} />,
     actions: (
       <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-        <Button appearance="primary">Primary</Button>
+        <Button appearance="alert">Deactivate</Button>
       </div>
     ),
     breadcrumbs: (
       <Breadcrumbs
         list={breadcrumbData}
-        onClick={link => console.log(link)}
+        onClick={link => history.push('/farmers')}
       />
     ),
     badge: (

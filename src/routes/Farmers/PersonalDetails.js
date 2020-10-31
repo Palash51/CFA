@@ -64,9 +64,9 @@ function PersonalDetails() {
           </Card>
         </div>
         <div style={{padding: 16}}>
-            Assignee
+            Assignee Name
             <Button appearance="basic" size="regular" className="Assign-button">
-                Assign    
+                Assign   
             </Button>
             <div style={{marginTop: 16}}>
             <Text>Assigned on</Text>

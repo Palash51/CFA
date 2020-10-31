@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useHistory } from 'react-router-dom';
 import {
   Row,
   Column,
@@ -101,10 +101,16 @@ function Home(props) {
   });
   const [expanded, setExpanded] = React.useState(true);
 
+  const history = useHistory();
+
+
   const onClickHandler = (menu) => {
     console.log("menu-clicked: ", menu);
     setActive(menu);
+    history.push('/farmers');
   };
+
+  
 
   return (
     <>
@@ -112,7 +118,7 @@ function Home(props) {
         <PageHeader {...options} separator={false} />
       </div>
       <Row className="vh-100 bg-secondary-lightest">
-        <div className="d-flex bg-secondary-lighter w-100" style={{width: 256}}>
+        <div className="d-flex bg-secondary-lighter w-100">
           <Navigation
             className="bg-light"
             type="vertical"
