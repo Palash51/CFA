@@ -1,0 +1,28 @@
+.Card-company-dashboard {
+    width: 25%;
+    margin-right: 32px;
+    height: 150px;
+}
+
+.Card-info {
+    height: 100%;
+    width: 100%;
+    background-color: var(--neel-lightest);
+}
+
+.Card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Card-heading {
+    margin-top: 32px;
+    font-size: 20px;
+}
+
+.Card-body {
+    margin-top: 16px;
+    font-size: 32px;
+}

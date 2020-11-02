@@ -8,6 +8,7 @@ import {
   Avatar,
 } from "@innovaccer/design-system";
 import Farmers from "./Farmers";
+import Company from './Company';
 
 
 function Home(props) {
@@ -107,7 +108,7 @@ function Home(props) {
   const onClickHandler = (menu) => {
     console.log("menu-clicked: ", menu);
     setActive(menu);
-    history.push('/farmers');
+    history.push(menu.link);
   };
 
   
@@ -132,6 +133,11 @@ function Home(props) {
           {active.name === 'farmers' && ( 
           <div class="h-100 w-100 d-flex flex-column">
             <Farmers />
+          </div>
+          )}
+          {active.name === 'company_360' && (
+            <div class="h-100 w-100 d-flex flex-column">
+            <Company />
           </div>
           )}
         </div>
