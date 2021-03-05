@@ -54,18 +54,22 @@ function Home(props) {
       name: "analytics",
       label: "Analytics",
       icon: "favorite",
+      link: "/timeline",
       subMenu: [
         {
           name: "analytics.timeline",
           label: "Timeline",
+          link: "/timeline",
         },
         {
           name: "analytics.stats",
           label: "Stats",
+          link: "/stats",
         },
         {
           name: "analytics.care_plans",
           label: "Plans",
+          link: "/plans",
         },
       ],
     },
@@ -73,26 +77,31 @@ function Home(props) {
       name: "inventory",
       label: "Inventory",
       icon: "local_mall",
+      link: "/inventory",
     },
     {
       name: "manula_entry",
       label: "Contract Form",
       icon: "border_color",
+      link: "/form",
     },
     {
       name: "claims",
       label: "Claims",
       icon: "receipt",
+      link: "/claims",
     },
     {
       name: "documents",
       label: "Documents",
       icon: "assignment",
+      link: "/documents",
     },
     {
       name: "profile",
       label: "Profile",
       icon: "account_circle",
+      link: "/profile",
     },
   ];
 
