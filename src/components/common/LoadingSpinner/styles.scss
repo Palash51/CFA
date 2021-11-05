@@ -1,0 +1,27 @@
+.sweet-loading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+    margin-top: -100px;
+
+    &.innerLoader {
+        height: 100%;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    &.overlay {
+        position: absolute;
+        z-index: 999999;
+        background: rgba(0, 0, 0, 0.5);;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        margin-top: 0;
+    }
+}

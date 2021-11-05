@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useHistory, withRouter } from 'react-router-dom';
 import {
   Card,
   Table,
@@ -8,16 +8,15 @@ import {
   Button,
   ProgressBar
 } from "@innovaccer/design-system";
-
 import styled from 'styled-components';
 import FarmerDetails from "./FarmerDetails";
+import AddFarmers from "./AddFarmers";
 
 const TableWrapper = styled.div`
   
-`;
+`
 
-
-function Farmers() {
+const Farmers = () => {
   const history = useHistory();
     const data = [
         {
@@ -144,16 +143,21 @@ function Farmers() {
           }),
         },
         {
-          name: 'icon',
-          displayName: 'Icon',
+          name: 'status',
+          displayName: 'Status',
           width: '15%',
           resizable: true,
           align: 'left',
           sorting: false,
-          cellType: 'ICON',
-          translate: _ => ({
-            icon: 'events'
-          })
+          cellRenderer: (props) => {
+            return(
+              <>
+                <div>
+                  Active
+                </div>
+              </>
+            )
+          }
         },
         {
           name: 'email',
@@ -212,12 +216,12 @@ function Farmers() {
             ]
         },
         {
-            "name": "icon",
-            "displayName": "Icon",
+            "name": "status",
+            "displayName": "Status",
             // "width": 100,
             "resizable": true,
             "align": "center",
-            "cellType": "ICON"
+           
         },
         {
             "name": "progress",
@@ -228,23 +232,35 @@ function Farmers() {
         }
     ];
 
+    const [farmerDetails, openFarmerDetails] = useState(false);
+    const [addFarmerSheet, setAddFarmerSheet] = useState(false)
+
+    const onClickAddFarmer = () => {
+      setAddFarmerSheet(true)
+    }
+
     const options = {
       title:"All Farmers",
       actions: (
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginRight: 20 }}>
-          <Button appearance="primary">Add Farmer</Button>
+          <Button appearance="primary" onClick={onClickAddFarmer}>Add Farmer</Button>
          </div>
       )
     };
 
-    const [farmerDetails, openFarmerDetails] = React.useState(false);
+    
 
     const showFarmerDetails = (userInfo) => {
       // debugger
       openFarmerDetails(true)
       history.push(`/farmers/${userInfo.firstName}`);
     }
-    
+
+    const goToFarmersList = () => {
+
+      openFarmerDetails(false);
+    }
+     
       return (
         <>
         {!farmerDetails && (
@@ -255,6 +271,7 @@ function Farmers() {
             {...options}
             />
         </div>
+        {addFarmerSheet && <AddFarmers />}
         <div className="flex-grow-1 overflow-hidden p-1" style={{height:0, width:1220, overflowX:'hidden', marginBottom: 48}}>
         <div className="h-100 d-flex flex-column overflow-hidden">
           <Card className="m-6 bg-light flex-grow-1 overflow-hidden d-flex flex-column"
@@ -307,11 +324,13 @@ function Farmers() {
         </>
         )}
         {farmerDetails && (
-          <FarmerDetails  />
+          <FarmerDetails 
+            goToFarmersList={goToFarmersList}
+          />
         )}
       </>
       );
     };
     
 
-export default Farmers;
+export default withRouter(Farmers);

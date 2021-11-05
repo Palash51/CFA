@@ -6,9 +6,9 @@ import {
   import './index.css';
 
 
-function FarmerDetails() {
+function Dashboard() {
   const history = useHistory();
-    
+  console.log("company 360 page rendering")
   return (
     <>
     <div className="d-flex mt-8 ml-8">
@@ -59,5 +59,5 @@ function FarmerDetails() {
 
 }
 
-export default FarmerDetails;
+export default Dashboard;
 

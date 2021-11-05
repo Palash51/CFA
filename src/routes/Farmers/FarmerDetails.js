@@ -8,11 +8,14 @@ import {
     StatusHint
     
   } from "@innovaccer/design-system";
-  import { useHistory } from 'react-router-dom';
+import { useHistory, withRouter } from 'react-router-dom';
+
+
 import PersonalDetails from './PersonalDetails';
 
 
-function FarmerDetails() {
+const FarmerDetails = (props) => {
+  const { goToFarmersList } = props;
   const history = useHistory();
     const navigationPosition = 'center';
 
@@ -44,11 +47,14 @@ function FarmerDetails() {
   const [expanded, setExpanded] = React.useState(true);
 
   const navigateMenu = (menu) => {
-    console.log("menu-clicked: ", menu);
+    // console.log("menu-clicked: ", menu);
     setActive(menu);
   };
 
-
+  const onClickBreadcrumbs = () => {
+    goToFarmersList(); 
+    history.push('/farmers')
+  }
 
   const options = {
     navigationPosition,
@@ -62,7 +68,10 @@ function FarmerDetails() {
     breadcrumbs: (
       <Breadcrumbs
         list={breadcrumbData}
-        onClick={link => history.push('/farmers')}
+        // onClick={link => history.push('/farmers')}
+        
+        onClick={onClickBreadcrumbs}
+        
       />
     ),
     badge: (
@@ -90,4 +99,4 @@ function FarmerDetails() {
 
 }
 
-export default FarmerDetails;
+export default withRouter(FarmerDetails);
