@@ -14,7 +14,7 @@ const history = createHistory();
 
 export default () => {
   return (
-  <BrowserRouter>
+  <BrowserRouter basename="/CFA">
       <Switch>
         <PrivateRoute
             layout={Home}
