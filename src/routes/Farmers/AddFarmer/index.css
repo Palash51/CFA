@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inputFields{
+    min-width: 210px !important;
+}
+
+.inputDiv{
+    margin-right: 20px;
+}
+
+.row{
+    display: flex;
+    margin-right: 10px;
+}
+
+.secondRow{
+    min-width: 300px !important;
+    margin-top: 10px;
+}
+.dropdown{
+    width: 38%;
+}
+.horizontalGap{
+    margin-top: 10px;
+}
