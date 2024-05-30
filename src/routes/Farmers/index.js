@@ -10,7 +10,7 @@ import {
 } from "@innovaccer/design-system";
 import styled from "styled-components";
 import FarmerDetails from "./FarmerDetails/FarmerDetails";
-import AddFarmers from "./AddFarmer/AddFarmers";
+import AddFarmers from "./AddFarmer/AddFarmers.jsx";
 
 const TableWrapper = styled.div`
   
