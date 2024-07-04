@@ -58,7 +58,7 @@ function PersonalDetails({ params }: { params: { slug: string } }) {
               <div className="w-[135%]">
                 <PageHeader
                   title="Farmer Details"
-                  separator={false}
+                  separator={true}
                   navigation={navigation}
                   actions={actions}
                 />
@@ -68,7 +68,7 @@ function PersonalDetails({ params }: { params: { slug: string } }) {
           <div className="ml-20 mt-10">
             <Card className=" w-100 bg-light" shadow="light">
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <div className="Contact-detail-heading">
+                <div className="Contact-detail-heading mb-0">
                   <h5
                     style={{ display: "block", fontSize: 16, fontWeight: 700 }}
                   >
